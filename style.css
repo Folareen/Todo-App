@@ -1,0 +1,137 @@
+:root{
+    --gradient : linear-gradient(to bottom left, rgb(44, 68, 44),rgb(56, 38, 38)) ;
+    --green: rgb(44, 68, 44);
+    --red : rgb(56, 38, 38);
+
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-image: var(--gradient);
+    min-height: 100vh;
+    color: white;
+    font-family: sans-serif;
+}
+header{
+    font-size: 1.5em;
+    text-transform: capitalize;
+}
+header, form{
+    display: flex;
+    justify-content: center;
+    min-height: 20vh;
+    align-items: center;
+}
+form{
+    width: 50%;
+    margin: 0 auto;
+    height: 20px;
+}
+form input{
+    padding: 0.1em;
+    border: none;
+    outline: none;
+    font-size: 2em;
+    width: 90%;
+    height: 25%;
+    box-sizing: border-box;
+}
+form button{
+    padding: 0.1em 0.2em;
+    font-size: 2em;
+    font-weight: bolder;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: green;
+    color: white;
+    min-width: 10%;
+    height: 25%;
+    box-sizing: border-box;
+}
+form button:hover, form button:focus{
+    color: green;
+    background-color: white;
+    border-left: 1px solid green;
+}
+select {
+    height: 25%;
+    border: none;
+    margin-left: 2%;
+    font-size: 1.2em;
+    text-transform: capitalize;
+}
+.todo-list{
+    width: 60%;
+    list-style: none;
+    margin: 0 auto;
+    width: 60%;
+}
+.todo-item{
+    display: flex;
+    margin-top: 15px;
+    font-weight: bold;
+    background-color: white;
+    position: relative;
+    height: 40px;
+    width: 100%;
+}
+.todo-text{
+    color: black;
+    font-size: 2em;
+    width: 90%;
+    padding: 3px;
+}
+.check{
+    border: none;
+    outline: none;
+    font-weight: bold;
+    font-size: 2em;
+    position: absolute;
+    background-color: darkgreen;
+    color: white;
+    width: 5%;
+    right: 5%;
+    height: 100%;
+}
+.check:hover{
+    background-color: white;
+    border-left: 1px solid darkgreen;
+    color: darkgreen;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+.delete{
+    border: none;
+    outline: none;
+    font-weight: bold;
+    font-size: 2em;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: darkred;
+    color: white;
+    width: 5%;
+    height: 100%;
+}
+.delete:hover{
+    border-left: 1px solid darkred;
+    color: darkred;
+    background-color: white;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+.completed{
+    text-decoration: line-through;
+    opacity: 0.4;
+    transition: all 0.5s;
+}
+.deleted{
+    transform: translateY(100%);
+    opacity: 0;
+    transition: all 1s ease;
+}
