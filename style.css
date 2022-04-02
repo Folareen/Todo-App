@@ -1,8 +1,14 @@
 :root{
-    --gradient : linear-gradient(to bottom left, rgb(44, 68, 44),rgb(56, 38, 38)) ;
-    --green: rgb(44, 68, 44);
-    --red : rgb(56, 38, 38);
-
+    --darkblue: #00204A;
+    --blue: #005792;
+    --lightblue : #00BBF0;
+    --white: #ffffff;
+    --darkwhite: #EFFBFF;
+    --green: #008000;
+    --lightgreen: #90ee90;
+    --red: #8b0000;
+    --lightred: #ff0000;
+    --gradient : linear-gradient(to bottom left, var(--darkblue),var(--blue));
 }
 *{
     padding: 0;
@@ -16,91 +22,132 @@ body{
     font-family: sans-serif;
 }
 header{
-    font-size: 1.5em;
+    font-size: 1.5rem;
     text-transform: capitalize;
-}
-header, form{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     min-height: 20vh;
     align-items: center;
 }
+
+/* form */
+.todo-form-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 form{
-    width: 50%;
     margin: 0 auto;
-    height: 20px;
+    width: 300px;
+    position: relative;
 }
 form input{
-    padding: 0.1em;
+    padding: 0.5em;
     border: none;
     outline: none;
-    font-size: 2em;
-    width: 90%;
-    height: 25%;
+    font-size: 1.8em;
+    width: 240px;
+    height: 50px;
     box-sizing: border-box;
+    border-radius: 25px;
+    z-index: 1;
+}
+form input:focus{
+    background-color: var(--blue);
+    border: 1px solid var(--white);
 }
 form button{
     padding: 0.1em 0.2em;
-    font-size: 2em;
+    font-size: 1.5em;
     font-weight: bolder;
     cursor: pointer;
     border: none;
     outline: none;
-    background-color: green;
-    color: white;
-    min-width: 10%;
-    height: 25%;
+    background-color: var(--white);
+    color: var(--green);
+    width: 50px;
+    height: 50px;
     box-sizing: border-box;
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+    transition: all .5s;
 }
 form button:hover, form button:focus{
-    color: green;
-    background-color: white;
-    border-left: 1px solid green;
+    color: var(--white);
+    background-color: var(--green);
+    border: 1px solid var(--white);
 }
-select {
-    height: 25%;
+select{
+    height: 50px;
     border: none;
-    margin-left: 2%;
-    font-size: 1.2em;
+    margin-top: 10px;
+    font-size: 1em;
     text-transform: capitalize;
+    border-radius: 25px;
+    width: 150px;
+    text-align: center;
+    color: var(--darkblue);
+}
+select:focus{
+    color: var(--white);
+    background-color: var(--blue);
+    border: 1px solid var(white);
 }
 .todo-list{
-    width: 60%;
     list-style: none;
-    margin: 0 auto;
-    width: 60%;
+    margin: 40px auto;
+    width: 350px;
 }
 .todo-item{
     display: flex;
-    margin-top: 15px;
+    margin-top: 20px;
     font-weight: bold;
     background-color: white;
     position: relative;
-    height: 40px;
+    height: 50px;
     width: 100%;
+    border-radius: 50px;
+    padding: 0;
 }
 .todo-text{
     color: black;
-    font-size: 2em;
-    width: 90%;
-    padding: 3px;
+    font-size: 1.1em;
+    width: 260px;
+    border-radius: 50px ;
+    /* overflow-x: scroll; */
+    /* background-color: var(--red); */
+    margin: 0;
+    color: var(--darkblue);
+    height: 50px;
+    word-wrap: break-word;
+    padding: 16.2px;
+    box-sizing: border-box;
 }
 .check{
     border: none;
     outline: none;
     font-weight: bold;
-    font-size: 2em;
+    /* font-size: 2em; */
     position: absolute;
-    background-color: darkgreen;
+    background-color: var(--green);
     color: white;
-    width: 5%;
-    right: 5%;
-    height: 100%;
+    right: 50px;
+    bottom: 7.5px;
+    top: 7.5px;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    box-sizing: border-box;
 }
 .check:hover{
-    background-color: white;
-    border-left: 1px solid darkgreen;
-    color: darkgreen;
+    background-color: var(--lightgreen);
+    border: 1px solid var(--green);
+    color: var(--green);
     cursor: pointer;
     transition: all .2s ease;
 }
@@ -108,20 +155,24 @@ select {
     border: none;
     outline: none;
     font-weight: bold;
-    font-size: 2em;
+    /* font-size: 2em; */
     position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background-color: darkred;
-    color: white;
-    width: 5%;
-    height: 100%;
+    right: 7.5px;
+    top: 7.5px;
+    bottom: 7.5px;
+    border: 1px solid var(--red);
+    background-color: var(--red);
+    color: var(--white);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    box-sizing: border-box;
 }
+
 .delete:hover{
-    border-left: 1px solid darkred;
-    color: darkred;
-    background-color: white;
+    /* border: 1px solid var(--red); */
+    color: var(--red);
+    background-color: var(--lightred);
     cursor: pointer;
     transition: all .2s ease;
 }

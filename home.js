@@ -6,7 +6,6 @@ const uncompleted = document.querySelector('.uncompleted');
 const completed = document.querySelector('.completed');
 const select = document.getElementById('select');
 
-
 addButton.addEventListener('click', addTodo);
 todoList.addEventListener('click', checkTodo);
 todoList.addEventListener('click', deleteTodo);
@@ -19,12 +18,12 @@ function addTodo(event){
 
     const checkButton = document.createElement('button');
     checkButton.classList.add('check');
-    checkButton.innerText = "v";
+    checkButton.innerHTML = '<i class="fa-solid fa-check"></i>';
     todoItem.append(checkButton);
 
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('delete');
-    deleteButton.innerText = "x";
+    deleteButton.innerHTML = '<i class="fa-solid fa-trash"></i>';
     todoItem.append(deleteButton);
 
     const todoText = document.createElement('div');
@@ -62,6 +61,7 @@ function filter(event){
     [...todoChildren].forEach( function(each){
         switch (event.target.value){
             case "all":
+                console.log(event.target);
                 each.style.display = "flex";
                 break;
             case "uncompleted":
