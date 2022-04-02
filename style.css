@@ -46,7 +46,7 @@ form input{
     padding: 0.5em;
     border: none;
     outline: none;
-    font-size: 1.8em;
+    font-size: 1.5em;
     width: 240px;
     height: 50px;
     box-sizing: border-box;
@@ -118,15 +118,16 @@ select:focus{
     color: black;
     font-size: 1.1em;
     width: 260px;
-    border-radius: 50px ;
-    /* overflow-x: scroll; */
-    /* background-color: var(--red); */
+    border-radius: 50px;
     margin: 0;
     color: var(--darkblue);
     height: 50px;
     word-wrap: break-word;
     padding: 16.2px;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .check{
     border: none;
