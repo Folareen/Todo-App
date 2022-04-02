@@ -41,6 +41,7 @@ form{
     margin: 0 auto;
     width: 300px;
     position: relative;
+    box-sizing: border-box;
 }
 form input{
     padding: 0.5em;
@@ -92,6 +93,7 @@ select{
     width: 150px;
     text-align: center;
     color: var(--darkblue);
+    box-sizing: border-box;
 }
 select:focus{
     color: var(--white);
@@ -133,7 +135,6 @@ select:focus{
     border: none;
     outline: none;
     font-weight: bold;
-    /* font-size: 2em; */
     position: absolute;
     background-color: var(--green);
     color: white;
@@ -159,7 +160,6 @@ select:focus{
     border: none;
     outline: none;
     font-weight: bold;
-    /* font-size: 2em; */
     position: absolute;
     right: 7.5px;
     top: 7.5px;
@@ -174,7 +174,6 @@ select:focus{
 }
 
 .delete:hover{
-    /* border: 1px solid var(--red); */
     color: var(--red);
     background-color: var(--lightred);
     cursor: pointer;
@@ -189,4 +188,28 @@ select:focus{
     transform: translateY(100%);
     opacity: 0;
     transition: all 1s ease;
+}
+@media screen and (min-width:768px) {
+    .todo-form-container{
+        flex-direction: row;
+        justify-content: space-between;
+        width: 550px;
+        margin: 0 auto;
+    }
+    form{
+        width: 350px;
+    }
+    form input{
+        width: 280px;
+    }
+    select{
+        margin: 0;
+    }
+    .todo-list{
+        width: 600px;
+        margin: 50px auto;
+    }
+    .todo-text{
+        width: 510px;
+    }
 }

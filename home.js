@@ -4,7 +4,7 @@ const todoList = document.querySelector('ul');
 const all = document.querySelector('.all');
 const uncompleted = document.querySelector('.uncompleted');
 const completed = document.querySelector('.completed');
-const select = document.getElementById('select');
+const select = document.querySelector('select');
 
 addButton.addEventListener('click', addTodo);
 todoList.addEventListener('click', checkTodo);
@@ -61,7 +61,6 @@ function filter(event){
     [...todoChildren].forEach( function(each){
         switch (event.target.value){
             case "all":
-                console.log(event.target);
                 each.style.display = "flex";
                 break;
             case "uncompleted":
