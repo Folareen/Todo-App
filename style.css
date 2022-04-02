@@ -144,6 +144,9 @@ select:focus{
     border-radius: 50%;
     box-sizing: border-box;
 }
+.check i, .delete i{
+    pointer-events: none;
+}
 .check:hover{
     background-color: var(--lightgreen);
     border: 1px solid var(--green);
