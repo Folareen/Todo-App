@@ -1,34 +1,36 @@
 const todoInput = document.querySelector(".todo-input");
 const addButton = document.querySelector(".submit-button");
-const todoList = document.querySelector('ul');
+let todoList = document.querySelector('ul');
 const all = document.querySelector('.all');
 const uncompleted = document.querySelector('.uncompleted');
 const completed = document.querySelector('.completed');
 const select = document.querySelector('select');
 
 addButton.addEventListener('click', addTodo);
-todoList.addEventListener('click', checkTodo);
-todoList.addEventListener('click', deleteTodo);
 select.addEventListener('change' , filter);
-
+document.addEventListener('DOMContentLoaded', getTodos);
 
 function addTodo(event){
     event.preventDefault();
     const todoItem = document.createElement('li');
 
+    localStorage.removeItem("todos");
+
     const checkButton = document.createElement('button');
     checkButton.classList.add('check');
     checkButton.innerHTML = '<i class="fa-solid fa-check"></i>';
     todoItem.append(checkButton);
+    checkButton.addEventListener('click', checkTodo);
 
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('delete');
     deleteButton.innerHTML = '<i class="fa-solid fa-trash"></i>';
     todoItem.append(deleteButton);
+    deleteButton.addEventListener('click', deleteTodo);
 
     const todoText = document.createElement('div');
     todoText.classList.add('todo-text');
-    if (todoInput.value.length <1){
+    if (todoInput.value.length < 1){
         alert("todo item can't be empty!");
     }else{
         todoText.innerText = todoInput.value;
@@ -38,22 +40,25 @@ function addTodo(event){
     }
     todoInput.value = "";
 
+    localStorage.setItem("todos", todoList.outerHTML)
 }
 
 function checkTodo(event){
-    const item = event.target;
-    if (item.className == "check"){
-       item.parentElement.classList.toggle('completed');
-    }
+    const item = event.target.parentElement;
+    item.classList.toggle('completed');
+    console.log("completed ahhh")
 }
 function deleteTodo(event){
-    const item = event.target;
-    if(item.className == "delete"){
-        item.parentElement.classList.add('deleted');
-        item.parentElement.addEventListener('transitionend', function (e){
-            e.target.remove();
-        })
-    }
+    const item = event.target.parentElement;
+    item.classList.add('deleted');
+    item.addEventListener('transitionend', function (e){
+
+        localStorage.removeItem("todos");
+
+        e.target.remove();
+
+        localStorage.setItem("todos", todoList.outerHTML)
+    })
 }
 
 function filter(event){
@@ -78,4 +83,12 @@ function filter(event){
                 }
                 break;
     }});
-};
+}
+
+function getTodos(){
+    if(localStorage.getItem('todos') !== null){
+        todoList.innerHTML = localStorage.getItem("todos");
+        document.querySelectorAll('.check').forEach( (checkBtn) => checkBtn.addEventListener('click', checkTodo));
+        document.querySelectorAll('.delete').forEach( (deleteBtn) => deleteBtn.addEventListener('click', deleteTodo));      
+    }
+}
