@@ -5,10 +5,12 @@ const all = document.querySelector('.all');
 const uncompleted = document.querySelector('.uncompleted');
 const completed = document.querySelector('.completed');
 const select = document.querySelector('select');
+const clearBtn = document.querySelector('.clear');
 
 addButton.addEventListener('click', addTodo);
 select.addEventListener('change' , filter);
 document.addEventListener('DOMContentLoaded', getTodos);
+clearBtn.addEventListener('click', clear)
 
 function addTodo(event){
     event.preventDefault();
@@ -91,4 +93,9 @@ function getTodos(){
         document.querySelectorAll('.check').forEach( (checkBtn) => checkBtn.addEventListener('click', checkTodo));
         document.querySelectorAll('.delete').forEach( (deleteBtn) => deleteBtn.addEventListener('click', deleteTodo));      
     }
+}
+
+function clear(){
+    todoList.innerHTML = "";
+    localStorage.removeItem("todos")
 }
