@@ -47,7 +47,7 @@ form input{
     padding: 0.5em;
     border: none;
     outline: none;
-    font-size: 1.5em;
+    font-size: 1.2em;
     width: 240px;
     height: 50px;
     box-sizing: border-box;
@@ -106,7 +106,6 @@ select:focus{
     width: 350px;
 }
 .todo-item{
-    display: flex;
     margin-top: 20px;
     font-weight: bold;
     background-color: white;
