@@ -42,7 +42,9 @@ function addTodo(event){
     }
     todoInput.value = "";
 
-    localStorage.setItem("todos", todoList.innerHTML)
+    clearBtn.classList.add("visible");
+
+    localStorage.setItem("todos", todoList.innerHTML);
 }
 
 function checkTodo(event){
@@ -91,11 +93,13 @@ function getTodos(){
     if(localStorage.getItem('todos') !== null){
         todoList.innerHTML = localStorage.getItem("todos");
         document.querySelectorAll('.check').forEach( (checkBtn) => checkBtn.addEventListener('click', checkTodo));
-        document.querySelectorAll('.delete').forEach( (deleteBtn) => deleteBtn.addEventListener('click', deleteTodo));      
+        document.querySelectorAll('.delete').forEach( (deleteBtn) => deleteBtn.addEventListener('click', deleteTodo));  
+        clearBtn.classList.add("visible");
     }
 }
 
 function clear(){
     todoList.innerHTML = "";
-    localStorage.removeItem("todos")
+    localStorage.removeItem("todos");
+    clearBtn.classList.remove("visible");
 }
