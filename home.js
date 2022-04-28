@@ -40,7 +40,7 @@ function addTodo(event){
     }
     todoInput.value = "";
 
-    localStorage.setItem("todos", todoList.outerHTML)
+    localStorage.setItem("todos", todoList.innerHTML)
 }
 
 function checkTodo(event){
@@ -57,7 +57,7 @@ function deleteTodo(event){
 
         e.target.remove();
 
-        localStorage.setItem("todos", todoList.outerHTML)
+        localStorage.setItem("todos", todoList.innerHTML)
     })
 }
 
