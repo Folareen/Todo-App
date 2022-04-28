@@ -1,5 +1,5 @@
-# Todo-App
+Todo-App
 just a simple todo app
 
-add date
-and storage
+live preview link:
+https://todo-app123456.netlify.app/
